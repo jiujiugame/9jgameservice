@@ -105,7 +105,7 @@ public class GMService {
     }
 
 
-    public void deposit(Long uid, Integer productId, Integer gameZoneId) {
+    public String deposit(Long uid, Integer productId, Integer gameZoneId) {
         String gmserver = gmServers.get(gameZoneId);
         String url = gmserver + "/cgi-bin/gm_operate:query_player_info";
         Gson gson = new Gson();
@@ -126,7 +126,7 @@ public class GMService {
         logger.info(body);
         try {
             resp = postText(gmserver + "/cgi-bin/pay_request:order_info", body);
-            logger.info(resp);
+            return resp;
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("encoding error.");
         }

@@ -5,6 +5,8 @@ public class JsonResult {
 
     private String msg;
 
+    private String orderId;
+
     private Object data;
 
     public int getCode() {
@@ -29,5 +31,13 @@ public class JsonResult {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }

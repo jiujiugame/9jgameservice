@@ -29,11 +29,17 @@ public class UserController {
 
     @PostMapping("/deposit")
     public JsonResult deposit(@RequestParam("productId") Integer productId,
-                              @RequestParam("roleId") Long uid,
+                              @RequestParam("gameRoleId") Long uid,
+                              @RequestParam("orderId") String orderId,
                               @RequestParam("gameZoneId") int gameZoneId) {
         JsonResult result = new JsonResult();
+        result.setOrderId(orderId);
         try {
-            gmService.deposit(uid, productId, gameZoneId);
+            String rs = gmService.deposit(uid, productId, gameZoneId - 1);
+            result.setMsg(rs);
+            if (!"SUCCESS".equals(rs)) {
+                result.setCode(-1);
+            }
         } catch (Exception e) {
             result.setCode(-1);
             result.setMsg(e.getMessage());
