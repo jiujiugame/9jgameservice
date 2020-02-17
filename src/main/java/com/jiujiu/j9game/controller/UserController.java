@@ -29,7 +29,7 @@ public class UserController {
 
     @PostMapping("/deposit")
     public JsonResult deposit(@RequestParam("productId") Integer productId,
-                              @RequestParam("uid") Long uid,
+                              @RequestParam("roleId") Long uid,
                               @RequestParam("gameZoneId") int gameZoneId) {
         JsonResult result = new JsonResult();
         try {
