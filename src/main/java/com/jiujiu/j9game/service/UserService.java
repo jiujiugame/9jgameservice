@@ -70,6 +70,8 @@ public class UserService {
         }
     }
 
+
+
     public JiuJiuUser getJiuJiuUser(String tokenHeader) {
         CloseableHttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost("https://www.jiujiuapp.cn/app/api/userinfo");
